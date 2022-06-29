@@ -5,11 +5,11 @@ const UserPersistenceModule = () =>
 {
     const sequelize = new Sequelize(
         {
-            database: "test_sb",
+            database: process.env.DB_NAME || "test_sb",
             dialect: "mysql",
-            host: "192.168.88.251",
-            username: "test_sb_user",
-            password: "0000"
+            host: process.env.DB_HOST || "192.168.88.251",
+            username: process.env.DB_USER || "test_sb_user",
+            password: process.env.DB_PASS || "0000"
         });
 
         UserOrmEntity.init(
